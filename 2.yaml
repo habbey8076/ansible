@@ -1,0 +1,14 @@
+---
+ - hosts: webservers
+   tasks:
+     - name: Installing httpd server
+       yum: name=httpd state=installed
+     - name: start httpd service
+       service:
+        name: httpd
+        state: started
+     - name: creating a file
+       copy:
+        content: "httpd service is up and running"
+        dest: /tmp/status.txt
+    
