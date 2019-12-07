@@ -1,4 +1,9 @@
 ---
- - hosts: webservers
+ - name: Play1 for running command module
+   hosts: webservers
    tasks:
-     - command: date
+    - name: Execute date command
+      command: date
+      register: output #(variable)
+    - debug: 
+       msg: "{{ output.stdout }}"
