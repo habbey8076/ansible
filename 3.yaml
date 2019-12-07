@@ -1,0 +1,10 @@
+---
+ - hosts: webservers
+   vars_prompt:
+    name: test
+    prompt: Enter value of test variable   
+   tasks:
+    - debug:
+       msg: "{{ test }}"
+      when: test=="1"
+ 

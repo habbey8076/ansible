@@ -1,0 +1,12 @@
+---
+ - hosts: webservers
+   vars:
+     cont: Please run the code
+   tasks:
+    - stat:
+       path: /tmp/test
+      register: p
+    - debug:
+       msg: "Path exists and is a directory {{ p }}"
+      when: p.stat.isdir is defined and p.stat.isdir
+
