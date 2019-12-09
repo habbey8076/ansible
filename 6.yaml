@@ -1,0 +1,26 @@
+---
+ - hosts: webservers
+   tasks:
+    - name: fist tasks
+      command: date
+      register: output
+      tags:
+       - test
+    - name: second tasks
+      command: ls /home
+      register: result
+      tags:
+      - test1 
+    - name: debug first task
+      debug:
+        msg: "{{ output.stdout }}"
+      tags:
+       - test
+    - name: debug second task
+      debug:
+       msg: "{{ result.stdout }}"
+      tags:
+         - test1
+   
+
+
