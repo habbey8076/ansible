@@ -6,6 +6,12 @@
       register: output
       tags:
        - test
+    - name: copy to a file
+      copy:
+        content: "{{ output.stdout }}"
+        dest: /tmp/1.txt
+      tags:
+       - test
     - name: second tasks
       command: ls /home
       register: result
