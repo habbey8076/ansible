@@ -1,0 +1,13 @@
+#if condition
+---
+ - hosts: webservers
+   vars:
+    test: "True"
+    cont: "Hi from ansible"
+   tasks:
+    - copy:
+        dest: /tmp/2.txt
+        content: "{{ cont }}"
+      when: ansible_facts['os_family']=='RedHat'
+    - debug:
+        msg: "{{ ansible_facts['os_family'] }}"

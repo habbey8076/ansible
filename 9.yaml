@@ -1,0 +1,11 @@
+---
+ - hosts: webservers
+   tasks:
+    - stat:
+       path: /tmp/abi
+      register: q
+    - debug:
+       msg: "Path exist and is a directory {{ q }}"
+      when: q.stat.isdir is defined and q.stat.isdir
+    - debug:
+       msg: " {{ q }}"
