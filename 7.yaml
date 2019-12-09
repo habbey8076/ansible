@@ -1,0 +1,12 @@
+#if conditon
+---
+ - hosts: webservers
+   vars: 
+    #test: True
+    test: False
+   tasks:
+    - name: first task
+      command: date
+      when: test==True
+   
+  
