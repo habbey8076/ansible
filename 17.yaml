@@ -1,0 +1,12 @@
+---
+ - hosts: webservers
+   tasks:
+     - file:
+         src: '/tmp/{{ item.src }}'
+         dest: '/tmp/{{ item.dest }}'
+         owner: root
+         group: root
+         state: link
+       with_items:
+        - { src: '1.txt',dest: '1.1' }
+        - { src: '2.txt',dest: '2.2' }

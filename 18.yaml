@@ -1,0 +1,7 @@
+---
+ - hosts: webservers
+   tasks:
+     - file:
+        path: /tmp/11.txt
+        state: touch
+        mode: "u=rw,g=r,o=r"
