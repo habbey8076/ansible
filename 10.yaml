@@ -1,0 +1,13 @@
+#loop
+---
+ - hosts: webservers
+   tasks:
+    - name: running the loop
+      debug:
+        msg: "{{ item }}"
+      #with_items:
+      loop:
+       - 1
+       - 2
+       - 3
+       - 4
