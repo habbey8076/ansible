@@ -1,0 +1,11 @@
+---
+ - hosts: webservers
+   tasks:
+     - name: add users
+       user:
+        name: "{{ item.name }}"
+        state: present
+        groups: "{{ item.group }}"
+       with_items:
+        - { name: 'testuser1', group: 'wheel' }
+        - { name: 'testuser2', group: 'root' }

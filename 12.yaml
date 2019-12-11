@@ -1,0 +1,12 @@
+---
+ - hosts: webservers
+   vars:
+     nested_lists:
+       - one
+       - two
+       - three
+   tasks:
+    - debug:
+       msg: "{{ item }}"
+      with_items:
+       - " {{ nested_lists }} "
