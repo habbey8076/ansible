@@ -1,0 +1,9 @@
+---
+ - hosts: webservers
+   tasks:
+     - name: reading the content of a file
+       debug:
+         msg: "{{ item }}"
+       with_file:
+        - /tmp/1.txt
+        - /tmp/2.txt

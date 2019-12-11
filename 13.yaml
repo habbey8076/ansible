@@ -1,0 +1,12 @@
+---
+ - hosts: webservers
+   tasks:
+     - name: give user access to multiple databases
+       mysql_user:
+          name: "{{ item[0] }}"
+          privi: "{{ item[1] }}"
+          append_privs: yes
+          password: "foo"
+       with_nested:
+          - [ 'Abi', 'mac' ]
+          - [ 'clientdb','empdb','docker' ]
